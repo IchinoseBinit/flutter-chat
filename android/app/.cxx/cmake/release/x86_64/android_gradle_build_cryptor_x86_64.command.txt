@@ -1,0 +1,7 @@
+Executable : C:\Users\binit\AppData\Local\Android\sdk\cmake\3.10.2.4988404\bin\ninja.exe
+arguments : 
+-C
+E:\Practises\Flutter\development\flutter_chat\android\app\.cxx\cmake\release\x86_64
+cryptor
+jvmArgs : 
+

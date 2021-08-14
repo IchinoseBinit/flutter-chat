@@ -1,0 +1,11 @@
+# ninja log v5
+0	1384	650562027	CMakeFiles/cryptor.dir/E_/Practises/Flutter/development/flutter_chat/src/cryptor.cpp.o	8c84a58d8595ce8c
+1385	2503	650562028	E:/Practises/Flutter/development/flutter_chat/build/app/intermediates/cmake/debug/obj/x86/libcryptor.so	8b9b0831fc113310
+2	1407	650563319	CMakeFiles/cryptor.dir/E_/Practises/Flutter/development/flutter_chat/src/cryptor.cpp.o	8c84a58d8595ce8c
+1407	2325	650563319	E:/Practises/Flutter/development/flutter_chat/build/app/intermediates/cmake/debug/obj/x86/libcryptor.so	8b9b0831fc113310
+2	1415	650574985	CMakeFiles/cryptor.dir/E_/Practises/Flutter/development/flutter_chat/src/cryptor.cpp.o	8c84a58d8595ce8c
+1415	4326	650574988	E:/Practises/Flutter/development/flutter_chat/build/app/intermediates/cmake/debug/obj/x86/libcryptor.so	8b9b0831fc113310
+4	2384	650589254	CMakeFiles/cryptor.dir/E_/Practises/Flutter/development/flutter_chat/src/cryptor.cpp.o	8c84a58d8595ce8c
+2384	3574	650589256	E:/Practises/Flutter/development/flutter_chat/build/app/intermediates/cmake/debug/obj/x86/libcryptor.so	8b9b0831fc113310
+4	1490	650632098	CMakeFiles/cryptor.dir/E_/Practises/Flutter/development/flutter_chat/src/cryptor.cpp.o	8c84a58d8595ce8c
+1490	2673	650632099	E:/Practises/Flutter/development/flutter_chat/build/app/intermediates/cmake/debug/obj/x86/libcryptor.so	8b9b0831fc113310

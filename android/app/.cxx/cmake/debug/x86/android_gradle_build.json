@@ -1,0 +1,43 @@
+{
+  "stringTable": {
+    "0": "E:/Practises/Flutter/development/flutter_chat/android/app/.cxx/cmake/debug/x86",
+    "1": "--target=i686-none-linux-android16 --gcc-toolchain=C:/Users/binit/AppData/Local/Android/Sdk/ndk/21.3.6528147/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=C:/Users/binit/AppData/Local/Android/Sdk/ndk/21.3.6528147/toolchains/llvm/prebuilt/windows-x86_64/sysroot -Dcryptor_EXPORTS -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -O0 -fno-limit-debug-info -fPIC"
+  },
+  "buildFiles": [
+    "E:\\Practises\\Flutter\\development\\flutter_chat\\android\\app\\CMakeLists.txt",
+    "C:\\Users\\binit\\AppData\\Local\\Android\\Sdk\\ndk\\21.3.6528147\\build\\cmake\\android.toolchain.cmake",
+    "C:\\Users\\binit\\AppData\\Local\\Android\\Sdk\\ndk\\21.3.6528147\\build\\cmake\\platforms.cmake"
+  ],
+  "cleanCommands": [
+    "C:\\Users\\binit\\AppData\\Local\\Android\\sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"E:\\Practises\\Flutter\\development\\flutter_chat\\android\\app\\.cxx\\cmake\\debug\\x86\" clean"
+  ],
+  "buildTargetsCommand": "C:\\Users\\binit\\AppData\\Local\\Android\\sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe  -C \"E:\\Practises\\Flutter\\development\\flutter_chat\\android\\app\\.cxx\\cmake\\debug\\x86\" {LIST_OF_TARGETS_TO_BUILD}",
+  "libraries": {
+    "cryptor-Debug-x86": {
+      "buildCommand": "C:\\Users\\binit\\AppData\\Local\\Android\\sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"E:\\Practises\\Flutter\\development\\flutter_chat\\android\\app\\.cxx\\cmake\\debug\\x86\" cryptor",
+      "buildType": "debug",
+      "toolchain": "3699805497",
+      "abi": "x86",
+      "artifactName": "cryptor",
+      "files": [
+        {
+          "src": "E:\\Practises\\Flutter\\development\\flutter_chat\\src\\cryptor.cpp",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        }
+      ],
+      "headers": [],
+      "output": "E:\\Practises\\Flutter\\development\\flutter_chat\\build\\app\\intermediates\\cmake\\debug\\obj\\x86\\libcryptor.so",
+      "runtimeFiles": []
+    }
+  },
+  "toolchains": {
+    "3699805497": {
+      "cppCompilerExecutable": "C:\\Users\\binit\\AppData\\Local\\Android\\Sdk\\ndk\\21.3.6528147\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe"
+    }
+  },
+  "cFileExtensions": [],
+  "cppFileExtensions": [
+    "cpp"
+  ]
+}
