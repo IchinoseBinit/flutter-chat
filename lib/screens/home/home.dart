@@ -1,10 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_chat/providers/chat_provider.dart';
-import 'package:flutter_chat/providers/message_provider.dart';
 import 'package:flutter_chat/screens/chat_screen/chat_screen.dart';
 import 'package:flutter_chat/screens/home/components/build_drawer.dart';
-import 'package:flutter_chat/screens/home/components/chat_tile.dart';
 import 'package:flutter_chat/shared_preferences.dart';
 import 'package:flutter_chat/utilities/firestore_helper.dart';
 import 'package:provider/provider.dart';
@@ -23,7 +21,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     getChatRoomStream().then((value) {
       setState(() {
@@ -81,6 +78,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                             onChanged: (value) async {
                               if (value.trim().length > 3) {
+                                print(value);
                                 userStream = await FireStoreHelper()
                                     .getUserbyUsername(value);
                                 setState(() {});
@@ -103,8 +101,12 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Future getChatRoomStream() async {
-    return await Provider.of<ChatProvider>(context, listen: false)
-        .getChatSnapshot();
+    final username = MySharedPreferences.sharedPreferences
+        .getString(MySharedPreferences.userNameKey)!;
+    return await FireStoreHelper().getChats(username);
+    // chatsStream = await Provider.of<ChatProvider>(context, listen: false)
+    //     .getChatSnapshot();
+    setState(() {});
   }
 
   Widget chatsList() {
@@ -113,6 +115,8 @@ class _HomeScreenState extends State<HomeScreen> {
     return StreamBuilder<QuerySnapshot>(
         stream: chatsStream,
         builder: (context, AsyncSnapshot snapshot) {
+          print("rebuild vo");
+
           if (snapshot.connectionState == ConnectionState.waiting) {
             return Center(child: CircularProgressIndicator());
           } else if (snapshot.hasError) {
@@ -125,8 +129,46 @@ class _HomeScreenState extends State<HomeScreen> {
               shrinkWrap: true,
               itemBuilder: (context, index) {
                 DocumentSnapshot document = snapshot.data.docs[index];
+                final myUserName = MySharedPreferences.sharedPreferences
+                    .getString(MySharedPreferences.userNameKey)!;
+                final senderName = document.id.contains("+")
+                    ? document.id.replaceAll(myUserName, "").replaceAll("+", "")
+                    : document.id;
+                bool isSendByMe = document['sender'] == myUserName;
 
-                return ChatTile(document);
+                print("$senderName ${document['lastMessage']}");
+                print("${document['image']} ${document['sender']}");
+
+                return ListTile(
+                  key: ValueKey(document.id),
+                  leading: CircleAvatar(
+                    backgroundImage: NetworkImage(document['image']),
+                  ),
+
+                  title: Text(senderName),
+                  subtitle: Text(
+                    isSendByMe
+                        ? document['lastMessage'].toString().length > 25
+                            ? "You: ${document['lastMessage'].toString().substring(0, 25)} ..."
+                            : "You: ${document['lastMessage'].toString()}"
+                        : document['lastMessage'].toString().length > 25
+                            ? "${document['lastMessage'].toString().substring(0, 25)} ..."
+                            : document['lastMessage'].toString(),
+                  ),
+                  onTap: () async {
+                    await Provider.of<ChatProvider>(context, listen: false)
+                        .createChats(context, senderName!);
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (_) => ChatScreen(
+                          imageUrl: document['image']!,
+                          username: senderName!,
+                        ),
+                      ),
+                    );
+                  },
+                  // trailing: ,
+                );
               },
             );
           } else {
